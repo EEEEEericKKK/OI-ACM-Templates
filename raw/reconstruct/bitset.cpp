@@ -61,7 +61,7 @@ struct Bitset
 	int popcount()const
 	{
 		int ret=0;
-		for(int i=0;i<maxn;i++)ret+=__builtin_popcount(a[i]);
+		for(int i=0;i<maxn;i++)ret+=__builtin_popcountll(a[i]);
 		return ret;
 	}
 	std::vector<int> ones()const
