@@ -125,6 +125,29 @@ vi qpow(vi x, Tp y, const vi &mod)
 	return ret;
 }
 
+int resultant(vi A, vi B)
+{
+	int coef = 1ll * qpow(A.back(), B.size() - 1) * qpow(B.back(), A.size() - 1) % mod;
+	A = A * qpow(A.back(), mod-2);
+	B = B * qpow(B.back(), mod-2);
+	while(true)
+	{
+		if(A.size() == 0 || B.size() == 0) return 0;
+		if(A.size() < B.size())
+		{
+			swap(A, B);
+			if(A.size() % 2 == 1 && B.size() % 2 == 1) coef = mod - coef;
+		}
+		if(B.back() > 1)
+		{
+			coef = 1ll * coef * qpow(B.back(), A.size() - 1) % mod;
+			B = B * qpow(B.back(), mod - 2);
+		}
+		if(B.size() == 1) return coef;
+		A = A % B;
+	}
+}
+
 int main()
 {
 	return 0;

@@ -14,6 +14,7 @@ int qpow(int x, int y)
 	}
 	return ret;
 }
+
 struct Matrix
 {
 	int a[MatN][MatN], N = MatN;
