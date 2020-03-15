@@ -1,1 +1,4 @@
 *.exe
+tested/*.exe
+raw/*.exe
+raw/reconstruct/*.exe
