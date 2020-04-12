@@ -2,7 +2,7 @@
 
 constexpr int mod = 998244353;
 constexpr long long mod2 = static_cast<long long>(mod) * mod;
-constexpr int MatN = 2;
+constexpr int MatN = 511;
 int qpow(int x, int y)
 {
 	int ret = 1;
@@ -17,10 +17,10 @@ int qpow(int x, int y)
 
 struct Matrix
 {
-	int a[MatN][MatN], N = MatN;
+	int a[MatN][MatN], N;
 	const int *operator [](const int &x)const { return a[x]; }
 	int *operator [](const int &x) { return a[x]; }
-	Matrix() { memset(a, 0, sizeof(a)); }
+	Matrix() { memset(a, 0, sizeof(a)); N = MatN; }
 	Matrix(const int &x) { memset(a, 0, sizeof(a)); for(int i=0; i<N; i++) a[i][i] = x; }
 };
 
@@ -117,6 +117,7 @@ std::vector<int> CharacteristicPolynomial(const Matrix &b)
 {
 	static int a[MatN][MatN];
 	int n = b.N;
+	for(int i=0; i<n; i++) for(int j=0; j<n; j++) a[i][j] = b[i][j];
 	for(int i=0; i<n-2; i++)
 	{
 		if(!a[i+1][i])
@@ -151,13 +152,20 @@ std::vector<int> CharacteristicPolynomial(const Matrix &b)
 		for(int i=k-1; i>=0; i--)
 		{
 			pr = 1ll * pr * a[i+1][i] % mod;
-			for(int j=0; j<=i; j++) p[k+1][j] = (p[k+1][j] + 1ll * q * p[i][j]) % mod;
+			q = 1ll * (mod-pr) * a[i][k] % mod;
+			for(int j=0; j<=i+1; j++) p[k+1][j] = (p[k+1][j] + 1ll * q * p[i][j]) % mod;
 		}
 	}
 	return std::vector<int>(p[n], p[n] + n + 1);
 }
 
+int n;
 int main()
 {
+	scanf("%d", &n);
+	Matrix a; a.N = n;
+	for(int i=0; i<n; i++) for(int j=0; j<n; j++) scanf("%d", a[i]+j);
+	auto v = CharacteristicPolynomial(a);
+	for(auto vv:v)printf("%d ", vv);puts("");
 	return 0;
 }

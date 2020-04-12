@@ -1,6 +1,5 @@
 #include <bits/stdc++.h>
 
-using uLL = unsigned long long;
 namespace Poly
 {
 
@@ -35,13 +34,13 @@ void dft(int* a, int n, bool inv = 0)
 		}
 	}
 	const int *W = w[inv];
-	const uLL md2 = static_cast<uLL>(mod) * mod;
+	const unsigned long long md2 = static_cast<unsigned long long>(mod) * mod;
 	for(int i=0, j=0; i<n; i++)
 	{
 		if(i<j) std::swap(a[i], a[j]);
 		for(int t = n>>1; (j ^= t) < t; t >>= 1);
 	}
-	static uLL ca[poly_max];
+	static unsigned long long ca[poly_max];
 	for(int i=0; i<n; i++) ca[i] = a[i];
 	for(int l = 1, d = poly_bits - 1; l<n; l <<= 1, d--)
 	{
@@ -50,7 +49,7 @@ void dft(int* a, int n, bool inv = 0)
 		for(int j=0; j<l; j++) cw[j] = W[j<<d];
 		for(int i=0, j; i<n; i+=l2)
 		{
-			uLL *x1 = ca+i, *x2 = ca+i+l, tmp;
+			unsigned long long *x1 = ca+i, *x2 = ca+i+l, tmp;
 			for(j=0; j+8 <= l; j+=8)
 			{
 				tmp=(*x2%mod)*cw[j];	*x2=*x1-tmp+md2; *x1+=tmp; x1++; x2++;

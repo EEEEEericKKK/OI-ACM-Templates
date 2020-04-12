@@ -10,24 +10,25 @@
 - [最小树形图](raw/minimum-arborescence.cpp)
 - 边双、圆方树（在路上）
 - KM（在路上）
+- 带花树（在路上）
 
 ### 字符串
 
-- [后缀数组](raw/reconstruct/suffix-array.cpp)（Manber&Myers的倍增 $O(n\log n)$ ）
+- [后缀数组](raw/suffix_array.cpp)（倍增 $O(n\log n)$ ，SA-IS在路上）
 - [后缀自动机](raw/suffix_automaton.cpp)（固定字符集大小）
 - [基本字串字典](raw/ipm-weak.cpp)（子串周期查询）
 - [回文树](raw/palindromic_tree.cpp)
 - [后缀树+LCT+线段树](raw/suffix-automaton-lct-sgt.cpp)（奇幻三合一，写的极丑，改动困难）
+- [找Runs](tested/runs.cpp)（字符串哈希）
 - 任意字符集后缀自动机（在路上）
 - 算法（KMP, Manacher, Duval）（在路上）
-- 找Runs（在路上）
 
 ### 数据结构
 
 - [splay](raw/splay.cpp)
 - [bitset](raw/reconstruct/bitset.cpp)
 - [哈希表](raw/reconstruct/hash-table.cpp)
-- [ST表](sparse_table.cpp)
+- [ST表](raw/sparse_table.cpp)
 - [二维数点](raw/reconstruct/two-dimensional-counting.cpp)（离线）
 - [LCT](raw/lct.cpp)（makeroot、翻转子树标记）
 - [LCT](raw/lct-subtree_sum.cpp)（上面的+子树和）
@@ -49,11 +50,14 @@
 
 - [整数凸包](raw/convex_hull.cpp)
 - [dls的大合集](raw/Geo_std.cpp)（By dls）
-- 
+
 ### 数论
 
 - [算法](raw/number_theory.cpp)（Miller-Rabin, Pollard-Rho, 扩展欧几里得, Cipolla）
 - [Min26筛](raw/min25sieve.cpp)（ $O\left(\frac{n^\frac 34}{\log n}\right)$ 的垃圾筛，能求每个 $\lfloor\frac nd\rfloor$ 的前缀和）
+- 真·Min25筛（在路上）
+- 二次剩余（在路上）
+- 各种奇怪算法（在路上）
 
 ### 线性代数
 
