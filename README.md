@@ -8,14 +8,15 @@
 - [最大流](raw/reconstruct/max-flow.cpp)
 - [费用流](raw/reconstruct/min-cost-flow.cpp)
 - [最小树形图](raw/minimum-arborescence.cpp)
+- [不带权带花树](raw/matching_for_graph.cpp)
 - 边双、圆方树（在路上）
 - KM（在路上）
-- 带花树（在路上）
 
 ### 字符串
 
 - [后缀数组](raw/suffix_array.cpp)（倍增 $O(n\log n)$ ，SA-IS在路上）
 - [后缀自动机](raw/suffix_automaton.cpp)（固定字符集大小）
+- [AC自动机](raw/aho-corasick.cpp)（固定字符集大小）
 - [基本字串字典](raw/ipm-weak.cpp)（子串周期查询）
 - [回文树](raw/palindromic_tree.cpp)
 - [后缀树+LCT+线段树](raw/suffix-automaton-lct-sgt.cpp)（奇幻三合一，写的极丑，改动困难）

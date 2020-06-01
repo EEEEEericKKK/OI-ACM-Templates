@@ -57,9 +57,9 @@ struct node
 		fa=0;val=v;
 	}
 };
-node a[200111];int tot,root,last;
+node a[1000111];int tot,root,last;
 int newnode(int v){a[++tot]=node(v);return tot;}
-void append(int x)
+int append(int x)
 {
 	int p=last,np=newnode(a[p].val+1);
 	while(p&&!a[p].ch[x])
@@ -88,6 +88,7 @@ void append(int x)
 		}
 	}
 	last=np;
+	return a[np].val - a[a[np].fa].val;
 }
 
 char s[200111];

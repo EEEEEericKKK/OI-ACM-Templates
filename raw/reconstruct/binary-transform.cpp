@@ -5,7 +5,7 @@ namespace bin_conv
 {
 
 constexpr int mod = 1e9+7;
-int qpow(int x,int y,const int& mod = ::mod)
+int qpow(int x,int y)
 {
 	int ret = 1;
 	while(y)
@@ -47,9 +47,9 @@ void iFMT(int *a, int n)
 void FWT(int *a, int n)
 {
 	int l = (1<<n);
-	for(int k=1; k<sz; k<<=1)
+	for(int k=1; k<n; k<<=1)
 	{
-		for(int i=0; i<sz; i+=(k<<1))for(int j=0; j<k; j++)
+		for(int i=0; i<n; i+=(k<<1))for(int j=0; j<k; j++)
 		{
 			register int u=a[i+j], v=a[i+j+k];
 			a[i+j]=u+v;if(a[i+j]>=mod)a[i+j]-=mod;

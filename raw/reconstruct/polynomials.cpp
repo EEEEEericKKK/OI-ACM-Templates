@@ -210,63 +210,6 @@ void Pow(int *a, int n, int *b, int m, int k)
 	for(int i=0; i<m; i++) b[i+fir*k] = 1ll * ta[i] * coef % mod;
 }
 
-void Div_do(int *a, int n, int *b, int *Ib, int m, int *c)
-{
-	std::reverse(a, a+n);
-	Mult(a, n - m + 1, ta, n - m + 1, ta, n - m + 1);
-	std::reverse(a, a+n);
-	memcpy(c, ta, sizeof(int) * (n - m + 1));
-	std::reverse(c, n - m + 1);
-}
-void Div(int *a, int n, int *b, int m, int *c)
-{
-	assert(n >= m && m > 0 && a[n-1] && b[m-1]);
-	static int ta[poly_max];
-	std::reverse(b, b+m);
-	Inv_do(b, m, ta, n - m + 1);
-	std::reverse(b, b+m);
-	Div_do(a, n, b, Ib, m, c);
-}
-
-void Mod_do(int *a, int n, int *b, int *Ib, int m, int *c)
-{
-	while(n && !a[n-1]) n--;
-	while(m && !b[m-1]) m--;
-	assert(m > 1);
-	if(n < m)
-	{
-		for(int i=0; i<m-1; i++) c[i] = (i < n ? a[i] : 0);
-		return;
-	}
-	static int ta[poly_max];
-	Div_do(a, n, b, Ib, m, ta);
-	Mult(b, m, ta, n - m + 1, ta);
-	for(int i=0; i<m-1; i++)
-	{
-		c[i] = (i < n ? a[i] : 0) - ta[i];
-		if(c[i] < 0) c[i] += mod;
-	}
-}
-void Mod(int *a, int n, int *b, int m, int *c)
-{
-	while(n && !a[n-1]) n--;
-	while(m && !b[m-1]) m--;
-	assert(m > 1);
-	if(n < m)
-	{
-		for(int i=0; i<m-1; i++) c[i] = (i < n ? a[i] : 0);
-		return;
-	}
-	static int ta[poly_max];
-	Div(a, n, b, Ib, m, ta);
-	Mult(b, m, ta, n - m + 1, ta);
-	for(int i=0; i<m-1; i++)
-	{
-		c[i] = (i < n ? a[i] : 0) - ta[i];
-		if(c[i] < 0) c[i] += mod;
-	}
-}
-
 }; // namespace Poly
 
 int a[200111], n, k;
