@@ -3,7 +3,7 @@
 #define V 100111
 #define E 100111
 typedef int val_t;
-constexpr val_t INF = 0x3f3f3f3f;
+const val_t INF = 0x3f3f3f3f;
 
 namespace MincostFlow
 {

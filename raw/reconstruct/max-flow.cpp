@@ -47,7 +47,7 @@ bool bfs(int s,int t)
 {
 	static int q[V];
 	
-	std::memset(lvl, 0, sizeof(bool) * (MX+1));
+	std::memset(lvl, -1, sizeof(int) * (MX+1));
 	lvl[s] = 0;
 	int rr = 0;
 	q[rr++] = s;
@@ -62,6 +62,7 @@ bool bfs(int s,int t)
 			q[rr++] = e[i].to;
 		}
 	}
+	return false;
 }
 val_t dfs(int x, int t, val_t f)
 {

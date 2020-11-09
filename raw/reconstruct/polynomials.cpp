@@ -3,10 +3,10 @@
 namespace Poly
 {
 
-constexpr int mod = 998244353;
-constexpr int root = 3;
-constexpr int poly_bits = 19;
-constexpr int poly_max = 1 << poly_bits;
+const int mod = 998244353;
+const int root = 3;
+const int poly_bits = 19;
+const int poly_max = 1 << poly_bits;
 int qpow(int x, int y, const int&mod = Poly::mod)
 {
 	int ret = 1;

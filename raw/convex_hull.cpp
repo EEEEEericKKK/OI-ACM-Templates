@@ -1,3 +1,16 @@
+#include <bits/stdc++.h>
+using std::vector;
+typedef double db;
+
+struct point
+{
+	db x, y;
+	point(db _x = 0, db _y = 0) { x = _x; y = _y; }
+	bool operator < (const point &rhs) const{ return std::make_pair(x, y) < std::make_pair(rhs.x, rhs.y); }
+	db operator *(const point &rhs) const { return x * rhs.y - y * rhs.x; }
+	point operator -(const point &rhs) const { return point(x - rhs.x, y - rhs.y); }
+};
+
 vector<point> convex_hull(vector<point> points)
 {
 	if ((int)points.size() == 1)
@@ -20,4 +33,9 @@ vector<point> convex_hull(vector<point> points)
 		reverse(points.begin(), points.end());
 	}
 	return hull;
+}
+
+int main()
+{
+	return 0;
 }

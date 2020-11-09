@@ -119,7 +119,7 @@ std::vector<std::pair<std::pair<int,int>,int>> work(char *s)
 	sv[n+1] = -1;
 	HASH::work(sv, n);
 	timer++;
-	std::vector<std::pair<std::pair<int,int>,int>> ret;
+	std::vector<std::pair<std::pair<int,int>,int> > ret;
 	for(int tp=0; tp<2; tp++)
 	{
 		static int stk[maxn], top;
@@ -136,7 +136,7 @@ std::vector<std::pair<std::pair<int,int>,int>> work(char *s)
 } // namespace Runs
 
 const int maxn = 100111;
-char s[maxn]; 
+char s[maxn];
 int main()
 {
 	scanf("%s", s);

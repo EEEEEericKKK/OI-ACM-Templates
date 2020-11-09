@@ -92,6 +92,7 @@ int append(int x)
 }
 
 char s[200111];
+int in[200111], out[200111];
 int main()
 {
 	scanf("%s",s+1);
@@ -99,6 +100,12 @@ int main()
 	root=last=newnode(0);
 	for(int i=1;s[i];i++)append(s[i]-'a');
 	for(int i=1;i<=tot;i++)for(int j=0;j<26;j++)if(a[i].ch[j])
-		printf("%d %d %c\n",i,a[i].ch[j],j+'a');
+	{
+		in[a[i].ch[j]]++;
+		printf("%d %d %c\n", i, a[i].ch[j], j + 'a');
+		out[i]++;
+	}
+	
+	for(int i=1; i<=tot; i++) if(in[i] != 1 && out[i] == 1) printf("i= %d\n", i);
 	return 0;
 }
